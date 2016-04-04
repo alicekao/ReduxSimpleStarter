@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import React from 'react'; // Used to create and manage components
+import ReactDOM from 'react-dom'; // Used to interact with DOM
 
-import App from './components/app';
-import reducers from './reducers';
+// Create a new component. This component should produce some HTML
+// App is a component class (creates instances of hi divs)
+// Fat arrow is ES6, identicaly to function() {}, only difference is the value of this
+const App = () => {
+  return <div>Hiiii!</div>;
+}
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+// To create an instance of App, wrap in tags:
+// <App />
+// Take this component's generate HTML and put it on the page (in the DOM)
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container'));
